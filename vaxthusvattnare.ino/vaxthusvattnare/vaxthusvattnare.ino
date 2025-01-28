@@ -12,8 +12,10 @@ int data[mangdavdata];
 int indexiarray = 0;
 int total = 0;
 int medelvarde = 0;
+const int pumpPin = 7;
 
 void setup() {
+  pinMode(pumpPin, OUTPUT);
   Serial.begin(9600);
   if (!display.begin(SSD1306_I2C_ADDRESS, 0x3C)) {
     for (;;);
@@ -37,11 +39,23 @@ void loop() {
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
   display.setCursor(0, 0);
-  if (medelvarde > 900) {
-    display.println("penis hihihihi!");
-  } else {
-    display.println("Väldigt blött!");
-  }
+  if (medelvarde > 930) {
+    display.println("very torrt!");
+          for (int i = 0; i < 12; i++); {
+            digitalWrite(pumpPin, HIGH);
+            delay (300);
+            digitalWrite(pumpPin, LOW);
+            delay(300); }}
+            if (930 > medelvarde > 500){
+              display.println("lite torrt!");
+              for (int i = 0; i < 12; i++);{
+                digitalWrite(pumpPin, HIGH);
+                delay(600);
+                digitalWrite(pumpPin, LOW);
+                delay(600);
+              }}
+              if (500 > )
+            }
   display.display();
   delay(500);
 }
